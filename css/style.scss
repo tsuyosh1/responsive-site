@@ -1,0 +1,124 @@
+@import "compass";
+@import url(https://fonts.googleapis.com/css?family=Abel);
+// font-family
+$baseFontFamily :"游ゴシック",
+YuGothic,
+"メイリオ",
+Verdana,
+"Hiragino Kaku Gothic ProN",
+Meiryo,
+sans-serif;
+
+// colors
+$baseColor: #e1f9f7;
+$subColor: #a4ede6;
+$keyColor: #02ccba;
+$fontColor: #000000;
+
+//  header-----*
+#top-img {
+    background-image: url("../images/hedder_img.jpg");
+    height: 500px;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+}
+
+@media (max-width:768px) {
+    #top-img {
+        height: 250px;
+    }
+}
+
+//  Base------*
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: $fontColor;
+    font-size: 1.4rem;
+    font-family: $baseFontFamily;
+    line-height: 1.6;
+    letter-spacing: 0.1em;
+    background-color: $baseColor;
+}
+
+a {
+    @include link-colors($keyColor,
+    darken($keyColor, 10%),
+    lighten($keyColor, 5%),
+    darken($keyColor, 10%));
+    text-decoration: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+//  main-----*
+main {
+    padding: 5%;
+    #main-text {
+        padding: 20px;
+        h1 {
+            font-size: 2rem;
+        }
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row; // background-color: $subColor;
+        .content-box {
+            text-align: center;
+            background: $keyColor;
+            margin: 10px;
+            width: calc(100% / 3 - 20px);
+            h3 {
+                padding: 10px;
+                background: white;
+            }
+            p {
+                padding: 10px;
+                word-break: break-all;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            .content-box {
+                width: calc(100% - 20px);
+            }
+        }
+    }
+}
+
+footer {
+    background-color: $subColor;
+    padding: 10px;
+    p {
+        padding: 10px;
+        font-size: 2rem;
+    }
+    a {
+        color: white;
+        margin: 10px auto;
+        display: inline-block;
+        width: 20%;
+        border-radius: 4px;
+        border-bottom: solid 4px #627295;
+        background-color: $keyColor;
+        padding: 10px;
+        &:active {
+            transform: translateY(4px);
+            /*下に動く*/
+            border-bottom: none;
+            /*線を消す*/
+        }
+        &:visited {
+            color: white;
+        }
+    }
+}
